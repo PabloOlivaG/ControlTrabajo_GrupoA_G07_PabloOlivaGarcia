@@ -82,6 +82,10 @@ public class Contenedor {
                 return this.empresaReceptora;
         }
 
+        public boolean getInspeccionado(){
+                return this.inspeccionado;
+        }
+
         @Override
         public java.lang.String toString() {
                 return "Contenedor numero "+ this.id + ":" +

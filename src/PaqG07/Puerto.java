@@ -48,6 +48,26 @@ public class Puerto {
         return "No existe el contenedor con ID " + id;
     }
 
+    private String infoContenedorRedu(int hub, int fila, int columna){
+        return "ID: "+hubs[hub].getHub()[fila][columna].getId()+
+                "\nEmpresaRemitente: "+hubs[hub].getHub()[fila][columna].getEmpresaEmisora()+
+                "\nPeso: "+hubs[hub].getHub()[fila][columna].getPeso()+
+                "\nChekeo: "+hubs[hub].getHub()[fila][columna].getInspeccionado();
+    }
+
+    public String buscarPrioridad(int prioridad){
+        StringBuilder resul = new StringBuilder();
+        for(int i=0; i<3; i++){ //Recorremos todos los hubs
+            resul.append("Hub ").append(i).append(":\n");
+            for(int j=0; j<12; j++) { //Por cada hub vamos recorriendo todas las columnas
+                if(hubs[i].getHub()[9][j].getPrioridad() == prioridad){ //Comprobamos la prioridad de los contenedores en la última fila de cada columna
+                    resul.append(this.infoContenedorRedu(i, 9, j)).append("\n-------------\n"); //Si el contenedor tiene esa prioridad usamos la función que devuelve su info reducida
+                }
+            }
+        }
+        return resul.toString();
+    }
+
     @Override
     public String toString() {
         StringBuilder mapa = new StringBuilder();
