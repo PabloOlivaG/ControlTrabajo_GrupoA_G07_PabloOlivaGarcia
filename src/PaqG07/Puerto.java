@@ -58,7 +58,7 @@ public class Puerto {
     public String buscarPrioridad(int prioridad){
         StringBuilder resul = new StringBuilder();
         for(int i=0; i<3; i++){ //Recorremos todos los hubs
-            resul.append("\n-------------\n").append("Hub ").append(i+1).append(":\n-------------\n");
+            resul.append("-------------\n").append("Hub ").append(i+1).append(":\n-------------\n");
             for(int j=0; j<12; j++) { //Por cada hub vamos recorriendo todas las columnas
                 if(hubs[i].getHub()[9][j] != null) {
                     if (hubs[i].getHub()[9][j].getPrioridad() == prioridad) { //Comprobamos la prioridad de los contenedores en la última fila de cada columna
